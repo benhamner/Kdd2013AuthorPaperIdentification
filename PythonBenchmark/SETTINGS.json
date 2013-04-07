@@ -1,0 +1,5 @@
+{
+    "train_path": "$DataPath/KDD2013AuthorPaperIdentification/Release 1/Train.csv",
+    "test_path": "$DataPath/KDD2013AuthorPaperIdentification/Release 1/Valid.csv",
+    "submission_path": "$DataPath/KDD2013AuthorPaperIdentification/Submissions/random_order_benchmark.csv"
+}
