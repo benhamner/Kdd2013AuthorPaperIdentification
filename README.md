@@ -5,7 +5,7 @@ This repo contains a benchmark and sample code in Python for the [Author Paper I
 
 It also contains the transformation code used to create the competition data files from the raw data in the Transform directory. This code is provided for your information only (and does not need to be looked at or run by competition participants).
 
-This version of the repo contains the **Random Order Benchmark**. Future benchmarks may be included here as well and will be marked with git tags.
+This version of the repo contains the **Paper Author Set Benchmark**. Future benchmarks may be included here as well and will be marked with git tags.
 
 Executing this benchmark requires Python 2.7 along with the following packages:
 
@@ -20,4 +20,4 @@ To run the benchmark,
 4. Make predictions on the validation set by running `python predict.py`
 5. [Make a submission](https://www.kaggle.com/c/kdd-cup-2013-author-paper-identification-challenge/team/select) with the output file
 
-This benchmark took less than 1 second to execute on a Windows 8 laptop with 8GB of RAM and 4 cores at 2.7GHz.
+This benchmark took less than 5 minutes to execute on a Windows 8 laptop with 8GB of RAM and 4 cores at 2.7GHz.
