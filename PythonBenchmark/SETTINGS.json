@@ -2,5 +2,6 @@
     "train_path": "$DataPath/KDD2013AuthorPaperIdentification/Release 1/Train.csv",
     "test_path": "$DataPath/KDD2013AuthorPaperIdentification/Release 1/Valid.csv",
     "meta_data_path": "$DataPath/KDD2013AuthorPaperIdentification/Release 1",
-    "submission_path": "$DataPath/KDD2013AuthorPaperIdentification/Submissions/paper_author_set_benchmark.csv"
+    "model_path": "$DataPath/KDD2013AuthorPaperIdentification/Models/basic_python_benchmark.pickle",
+    "submission_path": "$DataPath/KDD2013AuthorPaperIdentification/Submissions/basic_python_benchmark.csv"
 }

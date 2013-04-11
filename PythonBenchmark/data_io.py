@@ -2,6 +2,7 @@ import csv
 import json
 import os
 import pandas as pd
+import pickle
 
 def get_paths():
     paths = json.loads(open("Settings.json").read())
@@ -22,7 +23,11 @@ def parse_row(row, column_name):
 
 def read_train():
     train_path = get_paths()["train_path"]
-    train = pd.read_csv(train_path, index_col="AuthorId")
+    converters = {
+        "ConfirmedPaperIds": lambda x: x,
+        "DeletedPaperIds": lambda x: x
+    }
+    train = pd.read_csv(train_path, index_col="AuthorId", converters=converters)
     train["ConfirmedPaperIds"] = train.apply(parse_row, axis=1, args=("ConfirmedPaperIds",))
     train["DeletedPaperIds"] = train.apply(parse_row, axis=1, args=("DeletedPaperIds",))
     return train
@@ -36,6 +41,8 @@ def read_test():
 def read_meta_data(meta_data_file):
     meta_data_path = os.path.join(get_paths()["meta_data_path"], meta_data_file + ".csv")
     meta_data = pd.read_csv(meta_data_path)
+    if "Id" in meta_data:
+        meta_data = meta_data.set_index("Id")
     return meta_data
 
 def get_paper_author_set():
@@ -44,6 +51,14 @@ def get_paper_author_set():
     for i, row in paper_author_df.iterrows():
         paper_author_set.add((row["PaperId"], row["AuthorId"]))
     return paper_author_set
+
+def save_model(model):
+    out_path = get_paths()["model_path"]
+    pickle.dump(model, open(out_path, "w"))
+
+def load_model():
+    in_path = get_paths()["model_path"]
+    return pickle.load(open(in_path))
 
 def write_submission(predictions):
     predictions = [paper_ids_to_string(x) for x in predictions]
