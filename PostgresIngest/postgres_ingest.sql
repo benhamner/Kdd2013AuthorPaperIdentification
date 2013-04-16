@@ -51,3 +51,21 @@ CREATE TABLE Valid (
     PaperIds CHARACTER VARYING);
 
 COPY Valid FROM 'C:\Users\ben_000\Dropbox\Data\KDD2013AuthorPaperIdentification\Release 1\Valid.csv' DELIMITERS ',' CSV HEADER;
+
+CREATE TABLE ValidPapers (
+    AuthorId BIGINT,
+    PaperId BIGINT);
+
+COPY ValidPapers FROM 'C:\Users\ben_000\Dropbox\Data\KDD2013AuthorPaperIdentification\Release 1\ValidPapers.csv' DELIMITERS ',' CSV HEADER;
+
+CREATE TABLE TrainConfirmed (
+    AuthorId BIGINT,
+    PaperId BIGINT);
+
+COPY TrainConfirmed FROM 'C:\Users\ben_000\Dropbox\Data\KDD2013AuthorPaperIdentification\Release 1\TrainConfirmed.csv' DELIMITERS ',' CSV HEADER;
+
+CREATE TABLE TrainDeleted (
+    AuthorId BIGINT,
+    PaperId BIGINT);
+
+COPY TrainDeleted FROM 'C:\Users\ben_000\Dropbox\Data\KDD2013AuthorPaperIdentification\Release 1\TrainDeleted.csv' DELIMITERS ',' CSV HEADER;

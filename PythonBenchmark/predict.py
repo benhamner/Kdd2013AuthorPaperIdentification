@@ -20,17 +20,24 @@ def main():
     for author_id, row in test.iterrows():
         features = []
         paper_ids = []
+        bad_ids = []
         for paper_id in row["PaperIds"]:
             s = f.get_features(paper_id, author_id, paper_author_indexed,computed_features)
             if s is None:
                 print("Error at Author Id %d And Paper Id %d" % (author_id, paper_id))
+                bad_ids.append(paper_id)
             else:
                 features.append(s)
                 paper_ids.append(paper_id)
         feature_matrix = pd.DataFrame(features)
-        preds = classifier.predict_proba(feature_matrix)[:,1]
+        if len(feature_matrix)>0:
+            preds = classifier.predict_proba(feature_matrix)[:,1]
+        else:
+            preds = []
+        preds = [x for x in preds]
+        preds.extend([2 for x in bad_ids])
+        paper_ids.extend(bad_ids)
         paper_ids_sorted = sorted(zip(preds,row["PaperIds"]), reverse=True)
-        print(paper_ids_sorted)
         predictions.append([x[1] for x in paper_ids_sorted])
 
     print("Writing predictions to file")

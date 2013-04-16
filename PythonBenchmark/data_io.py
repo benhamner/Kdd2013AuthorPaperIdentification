@@ -45,6 +45,21 @@ def read_meta_data(meta_data_file):
         meta_data = meta_data.set_index("Id")
     return meta_data
 
+def read_paper_author_no_duplicates():
+    paper_author = read_meta_data("PaperAuthor")
+    previously_seen=set()
+    mask = []
+    for i, row in paper_author.iterrows():
+        if (row["PaperId"], row["AuthorId"]) in previously_seen:
+            mask.append(False)
+        else:
+            previously_seen.add((row["PaperId"], row["AuthorId"]))
+            mask.append(True)
+    return paper_author[mask]
+
+def read_paper_no_duplicates():
+    paper = read_meta_data("Paper")
+
 def get_paper_author_set():
     paper_author_df = read_meta_data("PaperAuthor")
     paper_author_set = set()

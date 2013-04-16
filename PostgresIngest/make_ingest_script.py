@@ -9,7 +9,7 @@ def get_sql(data_path, table_name):
 
 def main():
     data_path = os.path.join(os.environ["DataPath"], "KDD2013AuthorPaperIdentification", "Release 1")
-    tables = ["Paper", "Author", "Journal", "Conference", "PaperAuthor", "Train", "Valid"]
+    tables = ["Paper", "Author", "Journal", "Conference", "PaperAuthor", "ValidPapers", "TrainConfirmed", "TrainDeleted"]
     scripts = [get_sql(data_path, table) for table in tables]
     sql_script = "\n\n".join(scripts)
     f = open("postgres_ingest.sql", "w")

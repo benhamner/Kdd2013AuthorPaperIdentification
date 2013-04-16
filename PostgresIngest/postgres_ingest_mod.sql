@@ -39,15 +39,20 @@ CREATE TABLE PaperAuthor (
 
 COPY PaperAuthor FROM 'C:\Users\ben_000\Dropbox\Data\KDD2013AuthorPaperIdentification\Release 1\PaperAuthor.csv' DELIMITERS ',' CSV HEADER NULL AS 'NULL';
 
-CREATE TABLE Train (
-    AuthorId BIGINT PRIMARY KEY,
-    DeletedPaperIds CHARACTER VARYING,
-    ConfirmedPaperIds CHARACTER VARYING);
+CREATE TABLE ValidPaper (
+    AuthorId BIGINT,
+    PaperId BIGINT);
 
-COPY Train FROM 'C:\Users\ben_000\Dropbox\Data\KDD2013AuthorPaperIdentification\Release 1\Train.csv' DELIMITERS ',' CSV HEADER NULL AS 'NULL';
+COPY ValidPapers FROM 'C:\Users\ben_000\Dropbox\Data\KDD2013AuthorPaperIdentification\Release 1\ValidPaper.csv' DELIMITERS ',' CSV HEADER;
 
-CREATE TABLE Valid (
-    AuthorId BIGINT PRIMARY KEY,
-    PaperIds CHARACTER VARYING);
+CREATE TABLE TrainConfirmed (
+    AuthorId BIGINT,
+    PaperId BIGINT);
 
-COPY Valid FROM 'C:\Users\ben_000\Dropbox\Data\KDD2013AuthorPaperIdentification\Release 1\Valid.csv' DELIMITERS ',' CSV HEADER NULL AS 'NULL';
+COPY TrainConfirmed FROM 'C:\Users\ben_000\Dropbox\Data\KDD2013AuthorPaperIdentification\Release 1\TrainConfirmed.csv' DELIMITERS ',' CSV HEADER;
+
+CREATE TABLE TrainDeleted (
+    AuthorId BIGINT,
+    PaperId BIGINT);
+
+COPY TrainDeleted FROM 'C:\Users\ben_000\Dropbox\Data\KDD2013AuthorPaperIdentification\Release 1\TrainDeleted.csv' DELIMITERS ',' CSV HEADER;

@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 def get_paper_author():
-    paper_author = data_io.read_meta_data("PaperAuthor")
+    paper_author = data_io.read_paper_author_no_duplicates()
     paper = data_io.read_meta_data("Paper")
     author = data_io.read_meta_data("Author")
     conference = data_io.read_meta_data("Conference")
