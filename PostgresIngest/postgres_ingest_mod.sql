@@ -43,7 +43,7 @@ CREATE TABLE ValidPaper (
     AuthorId BIGINT,
     PaperId BIGINT);
 
-COPY ValidPapers FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\ValidPaper.csv' DELIMITERS ',' CSV HEADER;
+COPY ValidPaper FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\ValidPaper.csv' DELIMITERS ',' CSV HEADER;
 
 CREATE TABLE TrainConfirmed (
     AuthorId BIGINT,

@@ -18,9 +18,9 @@ def get_paper_author():
 
 def get_all_computed_features(paper_author):
     return {
-        "author_conference_count": paper_author.groupby(["AuthorId", "ConferenceId"]).apply(len),
-        "author_journal_count": paper_author.groupby(["AuthorId", "JournalId"]).apply(len),
-        "author_paper_count": paper_author.groupby("AuthorId").apply(len)
+        "author_conference_count": paper_author.groupby(["AuthorId", "ConferenceId"]).size(),
+        "author_journal_count": paper_author.groupby(["AuthorId", "JournalId"]).size(),
+        "author_paper_count": paper_author.groupby("AuthorId").size()
     }
 
 def get_features(paper_id, author_id, paper_author_indexed,computed_features):

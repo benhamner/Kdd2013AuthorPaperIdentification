@@ -53,4 +53,5 @@ def main():
     data_io.save_model(classifier)
     
 if __name__=="__main__":
-    main()
+    import profile
+    profile.run('main()')
