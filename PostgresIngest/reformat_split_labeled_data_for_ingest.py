@@ -1,6 +1,7 @@
 import csv
 from itertools import chain
 import os
+import re
 
 class CsvDialect(csv.Dialect):
     def __init__(self):
@@ -14,7 +15,7 @@ class CsvDialect(csv.Dialect):
         self.strict = False
 
 def to_relational(data):
-    data = [[(row[0], paper_id) for paper_id in row[1].split(" ")] for row in data]
+    data = [[(row[0], paper_id) for paper_id in re.sub(r"\s+", " ",row[1].strip()).split(" ")] for row in data]
     return list(chain.from_iterable(data))
 
 def write_data(data_path, file_name, header, data):
