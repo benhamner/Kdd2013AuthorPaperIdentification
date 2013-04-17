@@ -27,18 +27,21 @@ def main():
     data_path = os.path.join(os.environ["DataPath"], "KDD2013AuthorPaperIdentification", "Release 1")
     train_path = os.path.join(data_path, "Train.csv")
     valid_path = os.path.join(data_path, "Valid.csv")
+    test_path = os.path.join(data_path, "Test.csv")
 
     train_data = [row for row in csv.reader(open(train_path))]
-    valid_data = [row for row in csv.reader(open(train_path))]
+    valid_data = [row for row in csv.reader(open(valid_path))]
+    test_data = [row for row in csv.reader(open(test_path))]
 
     train_deleted = [(row[0], row[1]) for row in train_data[1:]]
     train_confirmed = [(row[0], row[2]) for row in train_data[1:]]
     valid_papers = valid_data[1:]
+    test_papers = test_data[1:]
 
     write_data(data_path, "TrainDeleted.csv", ["AuthorId", "PaperId"], train_deleted)
     write_data(data_path, "TrainConfirmed.csv", ["AuthorId", "PaperId"], train_confirmed)
-    write_data(data_path, "ValidPapers.csv", ["AuthorId", "PaperId"], valid_papers)
-
+    write_data(data_path, "ValidPaper.csv", ["AuthorId", "PaperId"], valid_papers)
+    write_data(data_path, "TestPaper.csv", ["AuthorId", "PaperId"], test_papers)
 
 if __name__=="__main__":
     main()
