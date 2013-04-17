@@ -3,9 +3,12 @@ import numpy as np
 import pandas as pd
 import re
 
+def KDDCup2013Track1SplitDataSeed():
+    raise NotImplementedError
+
 def split_data(data, train_frac, valid_frac):
     index = np.arange(len(data))
-    np.random.seed(135633)
+    np.random.seed(KDDCup2013Track1SplitDataSeed())
     np.random.shuffle(index)
     train_end = int(train_frac*len(data))
     valid_end = int((train_frac+valid_frac)*len(data))
@@ -54,7 +57,7 @@ def convert_to_test_format(test, usage="PrivateTest"):
 def create_competition_data():
     data_path = os.path.join(os.environ["DataPath"],
                              "Kdd2013AuthorPaperIdentification")
-    raw_path = os.path.join(data_path, "Raw")
+    raw_path = os.path.join(data_path, "LabeledObfuscated")
     labels_path = os.path.join(raw_path, "Task1LabeledDataSet.csv")
     out_path = os.path.join(data_path, "Release 1")
 
