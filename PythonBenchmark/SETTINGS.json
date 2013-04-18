@@ -1,7 +1,5 @@
 {
-    "train_path": "$DataPath/KDD2013AuthorPaperIdentification/Release 1/Train.csv",
-    "test_path": "$DataPath/KDD2013AuthorPaperIdentification/Release 1/Valid.csv",
-    "meta_data_path": "$DataPath/KDD2013AuthorPaperIdentification/Release 1",
-    "model_path": "$DataPath/KDD2013AuthorPaperIdentification/Models/basic_python_benchmark_new.pickle",
-    "submission_path": "$DataPath/KDD2013AuthorPaperIdentification/Submissions/basic_python_benchmark_new.csv"
+    "model_path": "$DataPath/KDD2013AuthorPaperIdentification/Models/basicPythonBenchmark.pickle",
+    "submission_path": "$DataPath/KDD2013AuthorPaperIdentification/Submissions/basicPythonBenchmark.csv",
+    "postgres_conn_string": "host='localhost' dbname='Kdd2013AuthorPaperIdentification' user='postgres' password='##AskForPassword##'"
 }
