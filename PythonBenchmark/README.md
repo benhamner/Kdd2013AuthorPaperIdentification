@@ -5,6 +5,8 @@ This folder contains a benchmark and sample code in Python for the [Author Paper
 
 This version of the repo contains the **Basic Python Benchmark**. Future benchmarks may be included here as well and will be marked with git tags.
 
+This benchmark is intended to provide a simple example of reading the data and creating the submission file, not as a state of the art benchmark on this problem.
+
 Executing this benchmark requires Python 2.7 along with PostgreSQL 9.2, the Python package sklearn version 0.13, and psycopg2 version 2.4.6 (other versions may work, but this has not been tested).
 
 To run the benchmark,
@@ -12,7 +14,7 @@ To run the benchmark,
 1. [Download data.postgres from the competition page](https://www.kaggle.com/c/kdd-cup-2013-author-paper-identification-challenge/data). This contains the dataset as a PostgreSQL backup (as an alternative format, the data are provided as csv files as well, but these are not used in this benchmark).
 2. Restore the backup to your local Postgres database. This can be done by creating a new database named Kdd2013AuthorPaperIdentification and then running the following command:
 
-    pg_restore -Fc -U postgres -d Kdd2013AuthorPaperIdentification data.postgres
+    `pg_restore -Fc -U postgres -d Kdd2013AuthorPaperIdentification data.postgres`
 
 3. Modify SETTINGS.json to include the login information to the PostgreSQL database, as well as a place to save the trained model and a place to save the submission
 4. Train the model by running `python train.py`

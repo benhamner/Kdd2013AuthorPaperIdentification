@@ -16,7 +16,7 @@ To run the benchmark,
 1. [Download data.postgres from the competition page](https://www.kaggle.com/c/kdd-cup-2013-author-paper-identification-challenge/data). This contains the dataset as a PostgreSQL backup (as an alternative format, the data are provided as csv files as well, but these are not used in this benchmark).
 2. Restore the backup to your local Postgres database. This can be done by creating a new database named Kdd2013AuthorPaperIdentification and then running the following command:
 
-    pg_restore -Fc -U postgres -d Kdd2013AuthorPaperIdentification data.postgres
+    `pg_restore -Fc -U postgres -d Kdd2013AuthorPaperIdentification data.postgres`
 
 3. Switch to the "PythonBenchmark" directory
 4. Modify SETTINGS.json to include the login information to the PostgreSQL database, as well as a place to save the trained model and a place to save the submission
