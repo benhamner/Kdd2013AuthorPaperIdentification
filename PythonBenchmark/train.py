@@ -10,7 +10,7 @@ def main():
 
     features = [x[2:] for x in features_conf + features_deleted]
     target = [0 for x in range(len(features_conf))] + [1 for x in range(len(features_deleted))]
-    
+
     print("Training the Classifier")
     classifier = RandomForestClassifier(n_estimators=50, 
                                         verbose=2,

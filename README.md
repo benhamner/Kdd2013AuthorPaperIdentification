@@ -5,7 +5,7 @@ This repo contains a benchmark and sample code in Python for the [Author Paper I
 
 It also contains the transformation code used to create the competition data files from the raw data in the Transform directory. This code is provided for your information only (and does not need to be looked at or run by competition participants).
 
-This version of the repo contains the **Basic Python Benchmark**. Future benchmarks may be included here as well and will be marked with git tags.
+This version of the repo contains the **Basic Coauthor Benchmark**. It adds a coauthor-based feature to the [Basic Python Benchmark](https://github.com/benhamner/Kdd2013AuthorPaperIdentification/tree/BasicPythonBenchmark). Future benchmarks may be included here as well and will be marked with git tags.
 
 This benchmark is intended to provide a simple example of reading the data and creating the submission file, not as a state of the art benchmark on this problem.
 

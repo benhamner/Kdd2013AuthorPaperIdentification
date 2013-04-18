@@ -51,37 +51,5 @@ def get_features_db(table_name):
     return res
 
 def get_features_query(table_name):
-    query = """
-    WITH AuthorJournalCounts AS (
-        SELECT AuthorId, JournalId, Count(*) AS Count
-        FROM PaperAuthor pa
-        LEFT OUTER JOIN Paper p on pa.PaperId=p.Id
-        GROUP BY AuthorId, JournalId),
-    AuthorConferenceCounts AS (
-        SELECT AuthorId, ConferenceId, Count(*) AS Count
-        FROM PaperAuthor pa
-        LEFT OUTER JOIN Paper p on pa.PaperId=p.Id
-        GROUP BY AuthorId, ConferenceId),
-    AuthorPaperCounts AS (
-        SELECT AuthorId, Count(*) AS Count
-        FROM PaperAuthor
-        GROUP BY AuthorId),
-    PaperAuthorCounts AS (
-        SELECT PaperId, Count(*) AS Count
-        FROM PaperAuthor
-        GROUP BY PaperId)
-    SELECT t.AuthorId, t.PaperId, ajc.Count As NumSameJournal, acc.Count AS NumSameConference, apc.Count AS NumPapersWithAuthorm, pac.Count AS NumAuthorsWithPaper
-    FROM %s t
-    LEFT OUTER JOIN Paper p ON t.PaperId=p.Id
-    LEFT OUTER JOIN AuthorJournalCounts ajc
-        ON ajc.AuthorId=t.AuthorId
-           AND ajc.JournalId = p.JournalId
-    LEFT OUTER JOIN AuthorConferenceCounts acc
-        ON acc.AuthorId=t.AuthorId
-           AND acc.ConferenceId = p.ConferenceId
-    LEFT OUTER JOIN AuthorPaperCounts apc
-        ON apc.AuthorId=t.AuthorId
-    LEFT OUTER JOIN PaperAuthorCounts pac
-        ON pac.PaperId=t.PaperId
-    """ % table_name
-    return query
+    query = open("feature_query.sql").read().strip()
+    return query.replace("##DataTable##", table_name)
