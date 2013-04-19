@@ -1,5 +1,5 @@
 {
-    "model_path": "$DataPath/KDD2013AuthorPaperIdentification/Models/basicCoauthorBenchmark.pickle",
-    "submission_path": "$DataPath/KDD2013AuthorPaperIdentification/Submissions/basicCoauthorBenchmark.csv",
+    "model_path": "$DataPath/KDD2013AuthorPaperIdentification/Models/basicCoauthorBenchmarkRev2.pickle",
+    "submission_path": "$DataPath/KDD2013AuthorPaperIdentification/Submissions/basicCoauthorBenchmarkRev2.csv",
     "postgres_conn_string": "host='localhost' dbname='Kdd2013AuthorPaperIdentification' user='postgres' password='##AskForPassword##'"
 }

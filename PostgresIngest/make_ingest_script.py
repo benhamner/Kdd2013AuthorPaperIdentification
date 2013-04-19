@@ -8,7 +8,7 @@ def get_sql(data_path, table_name):
     return schema + "\n\n" + ingest
 
 def main():
-    data_path = os.path.join(os.environ["DataPath"], "KDD2013AuthorPaperIdentification", "Release 1")
+    data_path = os.path.join(os.environ["DataPath"], "KDD2013AuthorPaperIdentification", "Release 2")
     tables = ["Paper", "Author", "Journal", "Conference", "PaperAuthor", "ValidPapers", "TrainConfirmed", "TrainDeleted"]
     scripts = [get_sql(data_path, table) for table in tables]
     sql_script = "\n\n".join(scripts)

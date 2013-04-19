@@ -30,11 +30,11 @@ def main():
 
     labeled_data = [row for row in csv.reader(open(labeled_path))]
     
-    labeled_deleted = [(row[0], row[1]) for row in labeled_data[1:]]
-    labeled_confirmed = [(row[0], row[2]) for row in labeled_data[1:]]
+    labeled_confirmed = [(row[0], row[1]) for row in labeled_data[1:]]
+    labeled_deleted = [(row[0], row[2]) for row in labeled_data[1:]]
 
-    write_data(labeled_transformed_path, "LabeledSetDeleted.csv", ["AuthorId", "PaperId"], labeled_deleted)
     write_data(labeled_transformed_path, "LabeledSetConfirmed.csv", ["AuthorId", "PaperId"], labeled_confirmed)
+    write_data(labeled_transformed_path, "LabeledSetDeleted.csv", ["AuthorId", "PaperId"], labeled_deleted)
 
 if __name__=="__main__":
     main()

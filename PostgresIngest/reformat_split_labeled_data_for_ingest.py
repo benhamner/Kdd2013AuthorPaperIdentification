@@ -33,8 +33,8 @@ def main():
     valid_data = [row for row in csv.reader(open(valid_path))]
     test_data = [row for row in csv.reader(open(test_path))]
 
-    train_deleted = [(row[0], row[1]) for row in train_data[1:]]
-    train_confirmed = [(row[0], row[2]) for row in train_data[1:]]
+    train_confirmed = [(row[0], row[1]) for row in train_data[1:]]
+    train_deleted = [(row[0], row[2]) for row in train_data[1:]]
     valid_papers = valid_data[1:]
     test_papers = test_data[1:]
 

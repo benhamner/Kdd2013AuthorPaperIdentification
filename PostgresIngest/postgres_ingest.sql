@@ -6,14 +6,14 @@ CREATE TABLE Paper (
     JournalId BIGINT,
     Keyword CHARACTER VARYING);
 
-COPY Paper FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\Paper.csv' DELIMITERS ',' CSV HEADER;
+COPY Paper FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 2\Paper.csv' DELIMITERS ',' CSV HEADER;
 
 CREATE TABLE Author (
     Id BIGINT,
     Name CHARACTER VARYING,
     Affiliation CHARACTER VARYING);
 
-COPY Author FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\Author.csv' DELIMITERS ',' CSV HEADER;
+COPY Author FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 2\Author.csv' DELIMITERS ',' CSV HEADER;
 
 CREATE TABLE Journal (
     Id BIGINT,
@@ -21,7 +21,7 @@ CREATE TABLE Journal (
     FullName CHARACTER VARYING,
     HomePage CHARACTER VARYING);
 
-COPY Journal FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\Journal.csv' DELIMITERS ',' CSV HEADER;
+COPY Journal FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 2Journal.csv' DELIMITERS ',' CSV HEADER;
 
 CREATE TABLE Conference (
     Id BIGINT,
@@ -29,7 +29,7 @@ CREATE TABLE Conference (
     FullName CHARACTER VARYING,
     HomePage CHARACTER VARYING);
 
-COPY Conference FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\Conference.csv' DELIMITERS ',' CSV HEADER;
+COPY Conference FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 2\Conference.csv' DELIMITERS ',' CSV HEADER;
 
 CREATE TABLE PaperAuthor (
     PaperId BIGINT,
@@ -37,35 +37,35 @@ CREATE TABLE PaperAuthor (
     Name CHARACTER VARYING,
     Affiliation CHARACTER VARYING);
 
-COPY PaperAuthor FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\PaperAuthor.csv' DELIMITERS ',' CSV HEADER;
+COPY PaperAuthor FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 2\PaperAuthor.csv' DELIMITERS ',' CSV HEADER;
 
 CREATE TABLE Train (
     AuthorId BIGINT,
     DeletedPaperIds CHARACTER VARYING,
     ConfirmedPaperIds CHARACTER VARYING);
 
-COPY Train FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\Train.csv' DELIMITERS ',' CSV HEADER;
+COPY Train FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 2\Train.csv' DELIMITERS ',' CSV HEADER;
 
 CREATE TABLE Valid (
     AuthorId BIGINT,
     PaperIds CHARACTER VARYING);
 
-COPY Valid FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\Valid.csv' DELIMITERS ',' CSV HEADER;
+COPY Valid FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 2\Valid.csv' DELIMITERS ',' CSV HEADER;
 
 CREATE TABLE ValidPapers (
     AuthorId BIGINT,
     PaperId BIGINT);
 
-COPY ValidPapers FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\ValidPapers.csv' DELIMITERS ',' CSV HEADER;
+COPY ValidPapers FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 2\ValidPapers.csv' DELIMITERS ',' CSV HEADER;
 
 CREATE TABLE TrainConfirmed (
     AuthorId BIGINT,
     PaperId BIGINT);
 
-COPY TrainConfirmed FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\TrainConfirmed.csv' DELIMITERS ',' CSV HEADER;
+COPY TrainConfirmed FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 2\TrainConfirmed.csv' DELIMITERS ',' CSV HEADER;
 
 CREATE TABLE TrainDeleted (
     AuthorId BIGINT,
     PaperId BIGINT);
 
-COPY TrainDeleted FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 1\TrainDeleted.csv' DELIMITERS ',' CSV HEADER;
+COPY TrainDeleted FROM '##DataPath##\KDD2013AuthorPaperIdentification\Release 2\TrainDeleted.csv' DELIMITERS ',' CSV HEADER;
